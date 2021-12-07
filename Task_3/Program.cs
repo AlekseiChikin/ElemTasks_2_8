@@ -1,12 +1,13 @@
-﻿using Task_2.Views;
+﻿using Task_3.Views;
 
-namespace Task_2
+namespace Task_3
 {
     public class Program
     {
-        public static void Main()
+       public static void Main()
         {
             Display.Menu();
         }
     }
 }
+

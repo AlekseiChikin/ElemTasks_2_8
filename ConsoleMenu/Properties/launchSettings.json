@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleMenu": {
+      "commandName": "Project",
+      "commandLineArgs": "3"
+    }
+  }
+}

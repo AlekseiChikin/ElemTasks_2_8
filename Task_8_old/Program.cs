@@ -1,6 +1,6 @@
-﻿using Task_2.Views;
+﻿using Task_8_old.Views;
 
-namespace Task_2
+namespace Task_8_old
 {
     public class Program
     {

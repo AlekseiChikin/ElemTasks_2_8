@@ -2,23 +2,14 @@
 
 namespace Task_2.Models
 {
-    class Envelope : IComparable<Envelope>
+    public class Envelope
     {
-        public double SideA { get; init; }
-        public double SideB { get; init; }
+        public double SideA { get; set; }
+        public double SideB { get; set; }
         public Envelope(double sideA, double sideB)
         {
-            SideA = sideA;
-            SideB = sideB;
-        }
-        public int CompareTo(Envelope thatEnvelope)
-        {
-            if ((this.SideA > thatEnvelope.SideA && this.SideB > thatEnvelope.SideB) ||
-                (this.SideA > thatEnvelope.SideB && this.SideB > thatEnvelope.SideA))
-            {
-                return 1;
-            } 
-            return 0;
+            SideA = Math.Min(sideA, sideB);
+            SideB = Math.Max(sideA, sideB);
         }
     }
 }

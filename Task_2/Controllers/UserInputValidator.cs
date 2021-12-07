@@ -1,41 +1,40 @@
 ﻿using System;
-using System.Globalization;
 
 namespace Task_2.Controllers
 {
-    //when static
-    static class UserInputValidator //TODO interface validate() 
+    static class UserInputValidator 
     {
-        
-        public static double Parser(string[] enevelopesFromArgs) //for args[] from console
-        {
-            throw new NotImplementedException();
-        }
         public static double GetEnvelopeSide()
         {
             string userInput;
-            double result;
+            double envelopSide;
             do
             {
                 userInput = Console.ReadLine();
-                result = ParseToNumeric(userInput);
+                envelopSide = ParseToNumeric(userInput);
 
-            } while (double.IsNaN(result));
+            } while (envelopSide <= 0);
 
-            return result;
-        } //вызываемая после вызываюшей
-	public static double ParseToNumeric(string envelopeSide) 
+            return envelopSide;
+        } 
+	    public static double ParseToNumeric(string envelopeSide) 
         {
             double result;
-
+            double maxValue = 1_000_000;
             try
             {
                 result = double.Parse(envelopeSide);
+                
+                if (result > maxValue)
+                    throw new ArgumentOutOfRangeException();
+                if(result <= 0)
+                    throw new ArgumentOutOfRangeException();
             }
-            catch (Exception) //where declare custom exception(architecture)?
+            catch (Exception) 
             {
                 Console.WriteLine("Invalid data");
-                result = double.NaN;
+                Console.WriteLine("Try again, input should be numeric, positive and less than 1 million");
+                result = 0;
             }
            
             return result;
